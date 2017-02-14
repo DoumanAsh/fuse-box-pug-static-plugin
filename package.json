@@ -1,0 +1,50 @@
+{
+  "name": "fuse-box-pug-static-plugin",
+  "version": "0.0.1",
+  "description": "ESlint plugin for fuse-box",
+  "author": "Douman",
+  "license": "MIT",
+  "main": "src/index.js",
+  "repository": "https://github.com/DoumanAsh/fuse-box-pug-static-plugin",
+  "bugs": {
+    "url": "https://github.com/DoumanAsh/fuse-box-pug-static-plugin/issues"
+  },
+  "scripts": {
+    "test-build": "node fuse.js",
+    "test-ut": "node --harmony-async-await ./node_modules/ava/cli.js --verbose",
+    "test": "npm run test-build && npm run test-ut",
+    "coverage": "node --harmony-async-await ./node_modules/nyc/bin/nyc.js node --harmony-async-await ./node_modules/ava/cli.js",
+    "lint": "eslint src/ test/"
+  },
+  "dependencies": {
+    "app-root-path": "*",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "fuse-box": "*",
+    "ava": "*",
+    "nyc": "*",
+    "sinon": "*",
+    "eslint": "*"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "failFast": true
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "html",
+      "text",
+      "lcov"
+    ]
+  }
+}
